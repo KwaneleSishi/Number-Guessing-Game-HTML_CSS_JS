@@ -1,0 +1,114 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Style the heading */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Game container to hold the two sections */
+.game-container {
+    display: flex; /* Makes children (guess-section and controls-section) sit side by side */
+    justify-content: center; /* Centers the two sections */
+    gap: 40px; /* Adds space between the left and right sections */
+}
+
+/* Left section: Guess input and Submit button */
+.guess-section {
+    display: flex;
+    flex-direction: column; /* Stacks input and button vertically */
+    align-items: center; /* Centers them within this section */
+}
+
+/* Right section: Reset, Give Up, feedback, and guess count */
+.controls-section {
+    display: flex;
+    flex-direction: column; /* Stacks these items vertically */
+    align-items: center; /* Centers them within this section */
+}
+
+/* Style the input field */
+#guessInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Space below input, no margin on sides anymore */
+}
+
+/* Style the buttons */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px 0; /* Vertical margin only, no side margins */
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Default is Submit */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Specific button styles */
+button:nth-child(2) { /* Reset button (second button in controls-section) */
+    background-color: #28a745;
+}
+
+button:nth-child(2):hover {
+    background-color: #218838;
+}
+
+button:nth-child(3) { /* Give Up button (third button in controls-section) */
+    background-color: #dc3545;
+}
+
+button:nth-child(3):hover {
+    background-color: #c82333;
+}
+
+/* Style the feedback and guess count */
+#feedback, #guessCount {
+    font-size: 18px;
+    margin: 10px 0; /* Vertical margin only */
+}
+
+/* Disabled input style */
+#guessInput:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .game-container {
+        flex-direction: column; /* Stack sections vertically on small screens */
+        gap: 20px;
+    }
+    #guessInput {
+        width: 80%;
+    }
+    button {
+        width: 100px;
+    }
+}
